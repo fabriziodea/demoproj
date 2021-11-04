@@ -1,0 +1,41 @@
+<html>
+<center> <h2> Employee Information System </h2>
+<br>
+<br>
+<br>
+<a href="http://localhost:5000/addnewRecord"> New Record </a>
+
+<form action="http://localhost:5000/filterrecords" method="POST">
+<select name="dept">
+			<option value="HR"> Human Resource </option>
+			<option value="IT"> Information Tech </option>
+			<option value="Sales"> Sales </option>
+			<option value="Training"> Training and Development </option>
+			<option value="all"> All records </option>
+
+			</select>
+			<input type="submit" value="Filter">
+</form>
+<table>
+	<tr bgcolor='Green'>
+		
+		<td > Name </td>
+		<td > Department </td>
+		<td > Subject</td>
+		<td> Operations </td>
+
+	</tr>
+	{%  for record in records %}
+
+		<tr>
+				<td> <a href="http://localhost:5000/personaldetails/{{record.empno}}"> {{ record.name }}</a> </td>
+				<td> {{record.dept}} </td>
+				<td> {{record.subject}} </td>
+				<td> <a href="http://localhost:5000/editRecord/{{record.empno}}"> edit </a>, 
+					<a href="http://localhost:5000/deleteEmployee/{{record.empno}}"> delete </a>
+				</td>
+		</tr>
+
+	{% endfor %}
+</table>
+</html>

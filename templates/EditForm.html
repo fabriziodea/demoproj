@@ -1,0 +1,55 @@
+
+<html>
+<form action="http://localhost:5000/saveEditedRecord" method="POST">
+	<input type="hidden" name="empno" value="{{record.empno}}">
+<table>
+	<tr>
+		<td> Name:							</td>
+		<td> <input type="Text" name="na" value="{{ record.name }}"> 	</td>
+	</tr>
+	<tr>
+		<td>Department:</td>
+		<td>
+			<select name="dept" value="IT">
+			<option selected hidden> {{record.dept}} </option>
+			<option value="HR"> Human Resource </option>
+			<option value="IT"> Information Tech </option>
+			<option value="Sales"> Sales </option>
+			<option value="Training"> Training and Development </option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>salary</td>
+		<td> <input type="text" name="sal" value="{{ record.salary }}"></td>
+		<tr>
+	<tr>
+		<td>Subject:</td>
+		<td>
+
+			<select name="subject">
+
+				<option selected hidden> {{record.subject}} </option>
+
+				<option value="java"> Java Programming </option>
+				<option value="sql"> SQL Development </option>
+				<option value="php"> Php programming </option>
+				<option value="python"> Python </option>
+				<option value="C"> C Language </option>
+			</select>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>Marks:</td>
+		<td><input type="text" name="marks" value="{{ record.marks }}"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit"></td>
+		<td></td>
+	</tr>
+</table>
+
+</form>
+
+</html>
