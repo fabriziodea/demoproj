@@ -3,9 +3,9 @@
 <br>
 <br>
 <br>
-<a href="http://localhost:5000/addnewRecord"> New Record </a>
+<a href="http:/34.142.90.80:5000/addnewRecord"> New Record </a>
 
-<form action="http://localhost:5000/filterrecords" method="POST">
+<form action="http:/34.142.90.80:5000/filterrecords" method="POST">
 <select name="dept">
 			<option value="HR"> Human Resource </option>
 			<option value="IT"> Information Tech </option>
@@ -28,11 +28,11 @@
 	{%  for record in records %}
 
 		<tr>
-				<td> <a href="http://localhost:5000/personaldetails/{{record.empno}}"> {{ record.name }}</a> </td>
+				<td> <a href="http://34.142.90.80:5000/personaldetails/{{record.empno}}"> {{ record.name }}</a> </td>
 				<td> {{record.dept}} </td>
 				<td> {{record.subject}} </td>
-				<td> <a href="http://localhost:5000/editRecord/{{record.empno}}"> edit </a>, 
-					<a href="http://localhost:5000/deleteEmployee/{{record.empno}}"> delete </a>
+				<td> <a href="http://34.142.90.80:5000/editRecord/{{record.empno}}"> edit </a>, 
+					<a href="http://34.142.90.80:5000/deleteEmployee/{{record.empno}}"> delete </a>
 				</td>
 		</tr>
 
