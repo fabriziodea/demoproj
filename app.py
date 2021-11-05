@@ -1,9 +1,12 @@
 from flask import Flask, request, redirect, render_template
 from flask_sqlalchemy import SQLAlchemy
 from os import getenv
+import pymysql
+from flask_wtf import FlaskForm
+from wtforms import IntegerField, StringField, SelectField, SubmitField
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = getenv('db_uri')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = getenv('secretkey')
 
@@ -23,7 +26,7 @@ db.create_all()
 @app.route('/')
 def home():
     emps = Employee.query.all()
-    return render_template('homepage.html', records=emps)
+    return render_template('Homepage.html', records=emps)
 
 @app.route('/editRecord/<int:empno>')
 def editRecordForm(empno):
@@ -86,4 +89,4 @@ def deleteEmployee(empno):
     db.session.commit()
     return redirect("/")
 
-app.run(debug=True)
+app.run(debug=True, host='0.0.0.0')
